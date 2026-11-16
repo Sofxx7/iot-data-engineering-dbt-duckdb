@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#10251f" />
+    <title>Lecturas IoT | Data Engineering</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="Inicio">L<span>•</span>IoT</a>
+      <span class="eyebrow">DATA ENGINEERING · DBT + DUCKDB</span>
+    </header>
+    <main>
+      <section class="hero">
+        <p class="eyebrow">PIPELINE POR LOTES</p>
+        <h1>De lecturas crudas<br />a una vista clara.</h1>
+        <p class="intro">Resumen diario de temperatura agrupado por fecha, sala y ubicación del sensor.</p>
+        <div class="source-tag"><span class="live-dot"></span> Muestra sintética reproducible</div>
+      </section>
+
+      <section class="metric-grid" aria-label="Resumen del conjunto de datos">
+        <article class="metric-card"><span>Lecturas procesadas</span><strong id="readings">—</strong></article>
+        <article class="metric-card"><span>Promedio del período</span><strong id="average">—</strong></article>
+        <article class="metric-card"><span>Días observados</span><strong id="days">—</strong></article>
+      </section>
+
+      <section class="panel chart-panel">
+        <div class="section-heading">
+          <div><p class="eyebrow">TENDENCIA</p><h2>Temperatura media por día</h2></div>
+          <label class="filter-label" for="position-filter">Ubicación
+            <select id="position-filter"><option value="all">Todas</option><option value="IN">Interior</option><option value="OUT">Exterior</option></select>
+          </label>
+        </div>
+        <div id="chart" class="chart" role="img" aria-label="Gráfico de temperatura media"></div>
+      </section>
+
+      <section class="panel table-panel">
+        <div class="section-heading"><div><p class="eyebrow">MODELO ANALÍTICO</p><h2>Detalle diario</h2></div><span class="table-note">Fecha · sala · ubicación</span></div>
+        <div class="table-scroll"><table>
+          <thead><tr><th>Fecha</th><th>Sala</th><th>Ubicación</th><th>Lecturas</th><th>Mín.</th><th>Media</th><th>Máx.</th></tr></thead>
+          <tbody id="daily-rows"><tr><td colspan="7">Cargando datos…</td></tr></tbody>
+        </table></div>
+      </section>
+      <p id="status" class="status" aria-live="polite"></p>
+    </main>
+    <footer><span>Modelo dbt · almacenamiento DuckDB</span><a href="https://github.com/Sofxx7/iot-data-engineering-dbt-duckdb">Código y flujo de despliegue ↗</a></footer>
+    <script src="app.js"></script>
+  </body>
+</html>

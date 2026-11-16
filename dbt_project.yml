@@ -1,0 +1,17 @@
+name: iot_temperature
+version: "1.0.0"
+config-version: 2
+profile: iot_temperature
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+clean-targets: ["target", "dbt_packages"]
+
+seeds:
+  iot_temperature:
+    +column_types:
+      id: varchar
+      room_id: varchar
+      noted_date: varchar
+      temp: integer
+      out_in: varchar

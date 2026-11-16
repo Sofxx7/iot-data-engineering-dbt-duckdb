@@ -1,0 +1,7 @@
+iot_temperature:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: iot_temperature.duckdb
+      threads: 1

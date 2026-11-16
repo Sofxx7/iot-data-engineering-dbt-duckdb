@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: stg_iot_readings
+    columns:
+      - name: reading_id
+        data_tests:
+          - not_null
+          - unique
+      - name: room_id
+        data_tests:
+          - not_null
+      - name: reading_at
+        data_tests:
+          - not_null
+      - name: temperature
+        data_tests:
+          - not_null
+      - name: position
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['IN', 'OUT']
